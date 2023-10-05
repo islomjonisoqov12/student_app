@@ -1,0 +1,16 @@
+#api:
+#  info:
+#    title: StudentAp
+#    description: Online queue
+#    version: 1.0
+#    terms-of-service: https://student.up
+#    contact-name: student.uz
+#    contact-email: 000
+#    contact-url: https://student.uz
+#    license-name: Apache 2.0
+#    license-url: https://www.apache.org/licenses/LICENSE-2.0.html
+#springdoc:
+#  swagger-ui:
+#    path: /ui
+#  api-docs:
+#    path: /docs
