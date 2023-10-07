@@ -36,7 +36,7 @@ public class LessonController {
 
     @PreAuthorize(value = "isAuthenticated()")
     @SecurityRequirement(name = "bearerAuth")
-    @GetMapping
+    @GetMapping("/byId")
     public HttpEntity<LessonDto> getNotebooks(@RequestParam String id){
         LessonDto lesson = service.getViaId(id);
         return ResponseEntity.ok(lesson);
@@ -51,6 +51,7 @@ public class LessonController {
     }
 
     @SecurityRequirement(name = "bearerAuth")
+    @PreAuthorize(value = "isAuthenticated()")
     @PatchMapping
     public HttpEntity<LessonDto> updateLesson(@Valid @RequestBody LessonDto dto){
         LessonDto lessonDto = service.updateLesson(dto);
@@ -58,6 +59,7 @@ public class LessonController {
     }
 
     @SecurityRequirement(name = "bearerAuth")
+    @PreAuthorize(value = "isAuthenticated()")
     @DeleteMapping
     public void delete(@RequestParam String id){
         service.deleteLesson(id);

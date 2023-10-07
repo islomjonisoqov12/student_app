@@ -11,6 +11,7 @@ import com.student.student_app.security.jwt.JWTFilter;
 import com.student.student_app.security.jwt.JwtProvider;
 import com.student.student_app.services.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -91,7 +92,8 @@ public class AuthController {
 
     @GetMapping("/me")
     @PreAuthorize(value = "isAuthenticated()")
-    @Operation(summary = "get currect authenticated user", description = "This method will give current authenticated user")
+    @SecurityRequirement(name = "bearerAuth")
+    @Operation(summary = "get current authenticated user", description = "This method will give current authenticated user")
     public ResponseEntity<StudentDto> getCurrentUser(){
         log.debug("user account me");
         StudentDto studentDto = studentService.getCurrentUser();

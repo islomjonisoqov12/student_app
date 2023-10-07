@@ -8,6 +8,7 @@ import com.student.student_app.models.Lesson;
 import com.student.student_app.models.Notebook;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
@@ -30,5 +31,5 @@ public interface LessonMapper extends AbstractMapper<Lesson, LessonDto, LessonCD
     LessonDto toDto(Lesson entity);
 
     @Override
-    Lesson fromUpdateDto(LessonDto updateDto, Lesson entity);
+    Lesson fromUpdateDto(LessonDto updateDto, @MappingTarget Lesson entity);
 }
