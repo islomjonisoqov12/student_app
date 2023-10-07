@@ -15,6 +15,7 @@ public class DataDto<T> implements Serializable {
     protected T data;
 
     protected AppErrorDto appErrorDto;
+    protected AppValidDto appValidDto;
 
     protected boolean success;
 
@@ -28,6 +29,11 @@ public class DataDto<T> implements Serializable {
 
     public DataDto(AppErrorDto appErrorDto) {
         this.appErrorDto = appErrorDto;
+        this.success = false;
+    }
+
+    public DataDto(AppValidDto appValidDto) {
+        this.appValidDto = appValidDto;
         this.success = false;
     }
 
