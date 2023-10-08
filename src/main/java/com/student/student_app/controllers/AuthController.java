@@ -76,10 +76,10 @@ public class AuthController {
     }
     @GetMapping("/send-email")
     @Operation(summary = "send code when registration", description = "This method send verification code to email")
-    public ResponseEntity<Void> sendVerifyCodeEmail(@RequestParam String email){
+    public ResponseEntity<String> sendVerifyCodeEmail(@RequestParam String email){
         log.debug("email: {}", email);
         studentService.sendCode(email);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok("Email sent successfully!");
     }
 
     @PostMapping("/registration")
